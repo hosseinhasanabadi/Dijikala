@@ -24,20 +24,20 @@ fun SetupNavGraph(navController: NavHostController) {
             SplashScreen(navController = navController)
 
         }
-        composable(route = Screen.Splash.route) {
+        composable(route = Screen.Home.route) {
             HomeScreen(navController = navController)
 
         }
-        composable(route = Screen.Splash.route) {
+        composable(route = Screen.Basket.route) {
             BasketScreen(navController = navController)
 
         }
 
-        composable(route = Screen.Splash.route) {
+        composable(route = Screen.Category.route) {
             CategoryScreen(navController = navController)
 
         }
-        composable(route = Screen.Splash.route) {
+        composable(route = Screen.Profile.route) {
             ProfileScreen(navController = navController)
 
         }
