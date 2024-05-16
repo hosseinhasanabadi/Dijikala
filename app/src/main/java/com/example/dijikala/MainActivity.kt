@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     SetupNavGraph(navController = navController)
 
 
-                    //dfyhgdfyhdfhfy
+
 
                 }
 
