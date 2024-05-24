@@ -2,9 +2,12 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 
-
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+
+
+  //  kotlin("kapt")
+  //  id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -64,6 +67,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.support.annotations)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -89,6 +93,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     // kapt("androidx.room:room-compiler:$room_version")
+
     implementation("androidx.room:room-ktx:2.6.0")
     //datastore
 
@@ -98,11 +103,14 @@ dependencies {
 
     //hilt di
 
-    val hilt_version = "2.44"
-    implementation("com.google.dagger:hilt-android:$hilt_version")
 
-    kapt("com.google.dagger:hilt-compiler:$hilt_version")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    val hilt_version = "2.48"
+    ksp(libs.hilt.compiler.v248)
+    implementation(libs.hilt.android)
+
+    //kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     //compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
@@ -120,7 +128,7 @@ dependencies {
 
 
 }
-kapt {
-    correctErrorTypes = true
-}
+//kapt {
+    //correctErrorTypes = true
+//}
 
