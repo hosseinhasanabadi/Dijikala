@@ -2,6 +2,7 @@ package com.example.dijikala
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
@@ -17,10 +18,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.dijikala.navigation.BottomNavigationBar
 import com.example.dijikala.navigation.SetupNavGraph
+import com.example.dijikala.ui.componemts.AppConfig
 import com.example.dijikala.ui.theme.DijikalaTheme
+import com.example.dijikala.util.Constants.ENGLISH_LANG
 import com.example.dijikala.util.Constants.USER_LANGUAGE
 import com.example.dijikala.util.LocaleUtils
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 
@@ -32,8 +38,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DijikalaTheme {
+
+
                 navController = rememberNavController()
+
+                AppConfig()
+
+                Log.e("3636", USER_LANGUAGE)
+
+
                 LocaleUtils.LocaleUtils.setLocale(LocalContext.current, USER_LANGUAGE)
+
+                val direction = if (USER_LANGUAGE == ENGLISH_LANG) {
+                    androidx.compose.ui.unit.LayoutDirection.Ltr
+                } else {
+                    androidx.compose.ui.unit.LayoutDirection.Rtl
+                }
+
+
+
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
                     Scaffold (
 
