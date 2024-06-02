@@ -1,5 +1,5 @@
 package com.example.dijikala.data.remote
 
-interface ApiInterface {
+interface HomeApiInterface  {
     //TODO api calls
 }

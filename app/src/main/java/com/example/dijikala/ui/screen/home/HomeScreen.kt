@@ -1,4 +1,4 @@
-package com.example.dijikala.ui.screen
+package com.example.dijikala.ui.screen.home
 
 
 import androidx.compose.material.Text
