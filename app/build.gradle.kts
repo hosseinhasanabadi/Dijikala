@@ -1,3 +1,7 @@
+import java.io.FileInputStream
+import java.util.Properties
+
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -10,6 +14,15 @@ plugins {
   //  id("com.google.dagger.hilt.android")
 }
 
+ val apikeyPropertiesFile=rootProject.file("key.properties")
+val apikeyProperties = Properties()
+/*FileInputStream(apikeyPropertiesFile).use { stream ->
+    apikeyProperties.load(stream)
+}*/
+apikeyProperties.load(FileInputStream(apikeyPropertiesFile))
+
+
+
 android {
     namespace = "com.example.dijikala"
     compileSdk = 34
@@ -20,6 +33,12 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "X_API_KEY", apikeyProperties.getProperty("X_API_KEY"))
+        buildFeatures{
+
+        }
+
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -45,6 +64,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
