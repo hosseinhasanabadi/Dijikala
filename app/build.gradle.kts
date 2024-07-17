@@ -146,6 +146,11 @@ dependencies {
     //system ui controller        contorol kardan ui
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 
+    //Accompanist-Pager
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
+
+
 
 }
 //kapt {
