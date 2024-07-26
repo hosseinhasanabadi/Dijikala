@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -41,12 +40,10 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
+fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
     var sliderList by remember {
         mutableStateOf<List<Slider>>(emptyList())
     }
