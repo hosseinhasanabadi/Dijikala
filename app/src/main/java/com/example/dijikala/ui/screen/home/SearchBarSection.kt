@@ -29,6 +29,7 @@ import com.example.dijikala.R
 import com.example.dijikala.ui.theme.LocalElevation
 import com.example.dijikala.ui.theme.LocalShape
 import com.example.dijikala.ui.theme.LocalSpacing
+import com.example.dijikala.ui.theme.extraSmall
 import com.example.dijikala.ui.theme.searchBarBg
 import com.example.dijikala.ui.theme.unSelectedBottomBar
 import com.example.dijikala.util.Constants
@@ -81,7 +82,7 @@ private fun SearchContent() {
                 .padding(start = 20.dp),
             textAlign = TextAlign.Center,
             color = MaterialTheme.colors.unSelectedBottomBar,
-          //  style = MaterialTheme.typography.
+           style = MaterialTheme.typography.extraSmall,
                  fontWeight = FontWeight.Normal,
             text = stringResource(id = R.string.search_in)
 
