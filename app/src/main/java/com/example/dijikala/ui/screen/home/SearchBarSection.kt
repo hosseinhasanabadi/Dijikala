@@ -43,7 +43,8 @@ fun SearchBarSection() {
         modifier = Modifier
             .fillMaxWidth()
             .height(65.dp)
-            .background(Color.White), elevation = LocalElevation.current.extraSmall
+            .background(Color.White),
+        elevation = LocalElevation.current.extraSmall
     ) {
         Box(
             modifier = Modifier
