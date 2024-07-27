@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    Home(navController)
+    Home(navController=navController)
 
 
 }
@@ -35,6 +35,13 @@ fun Home(
     viewModel: HomeViewModel = hiltViewModel()
 
 ) {
+    LaunchedEffect(true) {
+        viewModel.getSlider()
+    }
+
+
+
+
     Column(
         modifier = Modifier
             .background(Color.White)
@@ -57,9 +64,7 @@ fun Home(
                     .verticalScroll(rememberScrollState())
                     .padding(bottom = 60.dp)
             ) {
-                LaunchedEffect(true) {
-                    viewModel.getSlider()
-                }
+
                 SearchBarSection()
                 TopSliderSection()
 

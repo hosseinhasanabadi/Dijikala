@@ -5,11 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -32,10 +34,9 @@ import com.example.dijikala.ui.theme.LocalSpacing
 import com.example.dijikala.ui.theme.extraSmall
 import com.example.dijikala.ui.theme.searchBarBg
 import com.example.dijikala.ui.theme.unSelectedBottomBar
-import com.example.dijikala.util.Constants
 import com.example.dijikala.util.Constants.ENGLISH_LANG
 import com.example.dijikala.util.Constants.USER_LANGUAGE
-import okhttp3.internal.wait
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun SearchBarSection() {
@@ -83,8 +84,8 @@ private fun SearchContent() {
                 .padding(start = 20.dp),
             textAlign = TextAlign.Center,
             color = MaterialTheme.colors.unSelectedBottomBar,
-           style = MaterialTheme.typography.extraSmall,
-                 fontWeight = FontWeight.Normal,
+            style = MaterialTheme.typography.extraSmall,
+            fontWeight = FontWeight.Normal,
             text = stringResource(id = R.string.search_in)
 
         )
@@ -93,18 +94,21 @@ private fun SearchContent() {
                 .width(80.dp)
                 .padding(start = 5.dp),
 
-            painter = digikalaLogoChangeByLanguage()
-            , contentDescription ="" )
+            painter = digikalaLogoChangeByLanguage(), contentDescription = ""
+        )
 
     }
 }
+
+
 @Composable
-private fun digikalaLogoChangeByLanguage():Painter{
-    return if (USER_LANGUAGE == ENGLISH_LANG){
+private fun digikalaLogoChangeByLanguage(): Painter {
+    return if (USER_LANGUAGE == ENGLISH_LANG) {
         painterResource(id = R.drawable.digi_red_english)
-    }else{
+    } else {
         painterResource(id = R.drawable.digi_red_persian)
 
     }
 
 }
+
